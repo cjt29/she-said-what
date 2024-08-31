@@ -1,9 +1,9 @@
 import './bootstrap'
 import '../css/app.css'
 
-import { ZiggyVue } from 'ziggy-js'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { createApp, h, DefineComponent } from 'vue'
+import { ZiggyVue } from '../../vendor/tightenco/ziggy'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
