@@ -7,6 +7,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:tailwindcss/recommended',
   ],
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -32,6 +33,7 @@ module.exports = {
       },
     ],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-undef': 'off',
     'no-unused-vars': 'warn',
     'object-curly-spacing': ['warn', 'always'],
     quotes: [
@@ -50,9 +52,16 @@ module.exports = {
         asyncArrow: 'always',
       },
     ],
+    'tailwindcss/no-custom-classname': [
+      'warn',
+      {
+        cssFiles: ['resources/css/**/*.css'],
+      },
+    ],
     'vue/component-api-style': [
       'error', ['script-setup', 'composition'],
     ],
+    'vue/multi-word-component-names': 'off',
     'vue/no-v-text-v-html-on-component': 'off',
     'vue/max-attributes-per-line': [
       'warn',

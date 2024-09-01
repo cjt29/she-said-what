@@ -1,22 +1,11 @@
-import { PageProps as InertiaPageProps } from '@inertiajs/core';
-import { AxiosInstance } from 'axios';
-import { route as ziggyRoute } from 'ziggy-js';
-import { PageProps as AppPageProps } from './';
-
-declare global {
-    interface Window {
-        axios: AxiosInstance;
-    }
-
-    var route: typeof ziggyRoute;
-}
-
-declare module 'vue' {
-    interface ComponentCustomProperties {
-        route: typeof ziggyRoute;
-    }
-}
+import { PageProps as AppPageProps } from './'
+import { PageProps as InertiaPageProps } from '@inertiajs/core'
 
 declare module '@inertiajs/core' {
     interface PageProps extends InertiaPageProps, AppPageProps {}
+}
+
+declare module '@inertiajs/vue3' {
+  // The T generic will combine any type added to it & the PageProps interface defined in @inertiajs/core
+  export function usePage<T>(): Page<T>
 }

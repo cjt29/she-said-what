@@ -1,0 +1,22 @@
+@layer components {
+  .link {
+    @apply
+      inline-flex items-center gap-2
+      font-semibold leading-6
+      rounded-md
+      underline underline-offset-2
+      transition-colors
+      focus:outline-none
+      focus-visible:outline-offset-2
+    ;
+  }
+
+  .link--primary {
+    @apply
+      text-indigo-700 dark:text-indigo-300
+      hover:text-indigo-800 hover:decoration-indigo-800 dark:hover:text-indigo-200 dark:hover:decoration-indigo-200
+      group-hover:text-indigo-800 dark:group-hover:text-indigo-200
+      focus-visible:outline-indigo-900 dark:focus-visible:outline-indigo-200
+    ;
+  }
+}

@@ -1,0 +1,52 @@
+@layer components {
+  .btn {
+    @apply
+      flex justify-center items-center gap-2
+      min-w-max
+      border rounded-md
+      shadow-sm
+      font-semibold
+      focus:outline-none
+      focus-visible:outline-2 focus-visible:outline-offset-4
+    ;
+  }
+
+  .btn--primary {
+    @apply
+      bg-indigo-700 dark:bg-indigo-300
+      border-indigo-700 dark:border-indigo-300
+      text-indigo-100 dark:text-indigo-900
+      hover:bg-indigo-600 hover:border-indigo-800 dark:hover:bg-indigo-200 dark:hover:border-indigo-200
+      focus-visible:outline-indigo-900 dark:focus-visible:outline-indigo-200
+      disabled:bg-indigo-300 disabled:border-indigo-300 disabled:text-indigo-700
+    ;
+  }
+
+  .btn--xl {
+    @apply
+      py-3 px-6
+      text-lg leading-6
+    ;
+  }
+
+  .btn--lg {
+    @apply
+      py-2.5 px-[22px]
+      text-lg leading-6
+    ;
+  }
+
+  .btn--md {
+    @apply
+      py-2.5 px-4
+      text-sm
+    ;
+  }
+
+  .btn--sm {
+    @apply
+      py-2 px-[18px]
+      text-sm
+    ;
+  }
+}

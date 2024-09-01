@@ -25,6 +25,12 @@
         "unplugin-vue-components": "^0.27.4",
         "vite": "^5.0",
         "vue": "^3.4.0",
-        "vue-tsc": "^2.0.24"
+        "vue-tsc": "^2.0.24",
+        "ziggy-js": "^2.3.0"
+    },
+    "dependencies": {
+        "@fontsource-variable/figtree": "^5.0.22",
+        "@heroicons/vue": "^2.1.5",
+        "vue-toastification": "^2.0.0-rc.5"
     }
 }

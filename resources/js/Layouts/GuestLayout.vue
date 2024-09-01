@@ -1,20 +1,22 @@
-<script setup lang="ts">
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
-</script>
-
 <template>
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-        <div>
-            <Link href="/">
-                <ApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
-            </Link>
-        </div>
+  <div class="flex min-h-screen flex-col items-center bg-slate-100 py-12 sm:justify-center sm:px-6 lg:px-8 dark:bg-slate-900">
+    <div class="flex flex-col items-center gap-6 sm:mx-auto sm:w-full sm:max-w-md">
+      <Link
+        :href="route('home')"
+        class="custom-focus rounded-md text-indigo-700 dark:text-indigo-400"
+      >
+        <span
+          class="sr-only"
+          v-text="'Home'"
+        />
+        <AppLogo class="size-20 fill-current" />
+      </Link>
 
-        <div
-            class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg"
-        >
-            <slot />
-        </div>
+      <slot name="heading" />
     </div>
+
+    <div class="mt-10 w-4/5 sm:mx-auto sm:w-full sm:max-w-[480px]">
+      <slot />
+    </div>
+  </div>
 </template>

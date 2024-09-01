@@ -1,0 +1,35 @@
+@layer base {
+  html {
+    @apply
+      motion-safe:scroll-smooth
+    ;
+  }
+
+  a,
+  button {
+    @apply
+      transition-colors duration-300 ease-in-out
+    ;
+  }
+
+  ::selection {
+    @apply
+      bg-indigo-800
+      text-white
+    ;
+  }
+
+  label {
+    @apply
+      block
+      mb-2
+      font-medium text-sm leading-6 text-slate-700 dark:text-slate-300
+    ;
+  }
+
+  label:has(.sr-only) {
+    @apply
+      mb-0
+    ;
+  }
+}

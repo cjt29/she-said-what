@@ -12,6 +12,7 @@ export default defineConfig({
       imports: [
         'vue',
         { '@inertiajs/vue3': ['router', 'useForm', 'usePage'] },
+        { 'ziggy-js': ['route'] },
       ],
       dirs: ['resources/js/scripts/composables'],
     }),
@@ -29,7 +30,7 @@ export default defineConfig({
           }
         },
       ],
-      dirs: ['resources/js/components/global'],
+      dirs: ['resources/js/Components/Global'],
     }),
     laravel({
       input: 'resources/js/app.ts',
