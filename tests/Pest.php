@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\NotificationType;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -27,8 +28,18 @@ uses(TestCase::class, RefreshDatabase::class)->in('Feature');
 |
 */
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
+expect()->extend('hasSuccessMessage', function ($message = null) {
+    return $this->assertSessionHas(
+        'notification',
+        fn ($value) => $value['type'] === NotificationType::SUCCESS && $value['body'] === $message
+    );
+});
+
+expect()->extend('hasErrorMessage', function ($message = null) {
+    return $this->assertSessionHas(
+        'notification',
+        fn ($value) => $value['type'] === NotificationType::ERROR && $value['body'] === $message
+    );
 });
 
 /*
