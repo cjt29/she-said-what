@@ -112,6 +112,23 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'testing' => [
+            'driver' => 'pgsql',
+            'url' => env('DB_TESTING_DATABASE_URL'),
+            'host' => env('DB_TESTING_HOST'),
+            'port' => env('DB_TESTING_PORT'),
+            'database' => env('DB_TESTING_DATABASE'),
+            'username' => env('DB_TESTING_USERNAME'),
+            'password' => env('DB_TESTING_PASSWORD'),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'search_path' => 'public',
+            'sslmode' => 'prefer',
+            'options' => [
+                PDO::ATTR_PERSISTENT => env('DB_PERSISTENT_CONNECTION', false),
+            ],
+        ],
+
     ],
 
     /*

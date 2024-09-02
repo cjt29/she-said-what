@@ -1,41 +1,79 @@
 <?php
 
 use App\Models\User;
+use Inertia\Testing\AssertableInertia;
 
-test('login screen can be rendered', function () {
-    $response = $this->get('/login');
+use function Pest\Laravel\actingAs;
+use function Pest\Laravel\assertAuthenticated;
+use function Pest\Laravel\assertGuest;
+use function Pest\Laravel\get;
+use function Pest\Laravel\post;
 
-    $response->assertStatus(200);
+test('an authenticated user cannot access the login page', function () {
+    actingAs(User::factory()->create())
+        ->get(route('login'))
+        ->assertRedirect(route('dashboard'));
 });
 
-test('users can authenticate using the login screen', function () {
+test('a guest user can access the login page', function () {
+    get(route('login'))
+        ->assertInertia(fn (AssertableInertia $page) => $page
+            ->component('Auth/Login/Index')
+        );
+});
+
+test('an email is required to log in', function () {
+    post(route('login'), [
+        'email' => '',
+        'password' => 'password',
+    ])
+        ->assertSessionHasErrors('email');
+});
+
+test('a password is required to log in', function () {
+    $user = User::factory()->create();
+    post(route('login'), [
+        'email' => $user->email,
+        'password' => '',
+    ])
+        ->assertSessionHasErrors('password');
+});
+
+test('an existing user can log in', function () {
     $user = User::factory()->create();
 
-    $response = $this->post('/login', [
+    post(route('login'), [
         'email' => $user->email,
         'password' => 'password',
-    ]);
+    ])
+        ->assertRedirect(route('dashboard'));
 
-    $this->assertAuthenticated();
-    $response->assertRedirect(route('dashboard', absolute: false));
+    assertAuthenticated();
 });
 
-test('users can not authenticate with invalid password', function () {
+test('an existing user cannot log in with an invalid password', function () {
     $user = User::factory()->create();
 
-    $this->post('/login', [
+    post(route('login'), [
         'email' => $user->email,
         'password' => 'wrong-password',
-    ]);
+    ])
+        ->assertSessionHasErrors('email');
 
-    $this->assertGuest();
+    assertGuest();
 });
 
-test('users can logout', function () {
+test('a guest user cannot log out', function () {
+    post(route('logout'))
+        ->assertRedirect(route('login'));
+});
+
+test('an authenticated user can log out', function () {
     $user = User::factory()->create();
 
-    $response = $this->actingAs($user)->post('/logout');
+    actingAs($user)
+        ->post(route('logout'))
+        ->assertRedirect(route('home'));
 
-    $this->assertGuest();
-    $response->assertRedirect('/');
+    assertGuest();
 });
