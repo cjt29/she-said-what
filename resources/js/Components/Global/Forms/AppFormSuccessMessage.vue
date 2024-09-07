@@ -4,7 +4,7 @@
     type="success"
   >
     <p
-      class="text-sm font-medium"
+      class="text-sm"
       v-html="message"
     />
   </AppInlineNotification>

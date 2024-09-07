@@ -9,6 +9,13 @@
       />
     </template>
 
+    <AppFormSuccessMessage
+      v-if="status"
+      class="mb-4"
+      heading-text="Success!"
+      :message="status"
+    />
+
     <div class="rounded-lg bg-white px-6 py-12 shadow sm:px-12 dark:bg-slate-800">
       <LoginForm />
     </div>
@@ -27,4 +34,13 @@
 <script setup lang="ts">
 import GuestLayout from '@/Layouts/GuestLayout.vue'
 import LoginForm from '@/Pages/Auth/Login/Partials/LoginForm.vue'
+
+withDefaults(
+  defineProps<{
+    status?: string | null
+  }>(),
+  {
+    status: null,
+  },
+)
 </script>
