@@ -4,6 +4,8 @@
     class="space-y-6"
     @submit.prevent="handleSubmit"
   >
+    <AppFormErrorSummary :errors="form.errors" />
+
     <AppTextInput
       id="username"
       v-model="form.username"

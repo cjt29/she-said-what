@@ -1,10 +1,11 @@
 <template>
-  <!-- TODO: Make a reusable, accessible form error display. -->
   <form
     novalidate
     class="space-y-6"
     @submit.prevent="handleSubmit"
   >
+    <AppFormErrorSummary :errors="form.errors" />
+
     <AppTextInput
       id="email"
       v-model="form.email"

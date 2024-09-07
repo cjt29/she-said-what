@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppButton: typeof import('./../../Components/Global/AppButton.vue')['default']
     AppCheckboxInput: typeof import('./../../Components/Global/Forms/Inputs/AppCheckboxInput.vue')['default']
+    AppFormErrorSummary: typeof import('./../../Components/Global/Forms/AppFormErrorSummary.vue')['default']
     AppFormSuccessMessage: typeof import('./../../Components/Global/Forms/AppFormSuccessMessage.vue')['default']
     AppInlineNotification: typeof import('./../../Components/Global/AppInlineNotification.vue')['default']
     AppLogo: typeof import('./../../Components/Global/AppLogo.vue')['default']
