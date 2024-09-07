@@ -35,7 +35,7 @@ jobs:
 
       - name: Prepare Laravel Application
         run: |
-          cp .env.ci.example .env
+          cp .env.ci .env
           php artisan key:generate
           php artisan migrate:refresh --force
 
