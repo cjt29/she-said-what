@@ -13,7 +13,7 @@
         :disabled="disabled"
         :class="inputClasses"
         type="checkbox"
-        class="size-5 rounded-md border-slate-300 text-indigo-700 shadow-sm focus:ring-indigo-900 dark:border-slate-700 dark:bg-slate-900 dark:text-indigo-300 dark:focus:ring-indigo-200 dark:focus:ring-offset-slate-800"
+        class="size-5 rounded-md border-slate-300 bg-slate-50 text-indigo-700 shadow-sm focus:ring-indigo-900 dark:border-slate-700 dark:bg-white/5 dark:text-indigo-400 dark:focus:ring-indigo-300 dark:focus:ring-offset-slate-950"
       >
       <span
         class="text-sm font-medium"

@@ -12,7 +12,7 @@
         v-if="required"
         :class="{ 'sr-only': hideLabel }"
         aria-hidden="true"
-        class="text-red-600 dark:text-red-300"
+        class="text-red-700 dark:text-red-400"
         v-text="'*'"
       />
       <slot name="inputLink" />
@@ -28,11 +28,11 @@
       :placeholder="placeholder"
       :required="required"
       :type="type"
-      class="block w-full rounded-md border-0 bg-slate-100 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-indigo-900 disabled:cursor-not-allowed disabled:opacity-50 sm:leading-6 dark:bg-slate-900 dark:text-slate-200 dark:ring-slate-700 dark:focus:ring-indigo-200"
+      class="block w-full rounded-md border-0 bg-slate-50 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-indigo-900 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500 sm:leading-6 dark:bg-white/5 dark:text-slate-200 dark:ring-white/10 dark:focus:ring-indigo-300 disabled:dark:bg-white/10 disabled:dark:text-slate-600"
     >
     <div
       v-if="errorMessage"
-      class="mt-1.5 flex items-center gap-2 text-sm text-red-600 dark:text-red-300"
+      class="mt-1.5 flex items-center gap-2 text-sm text-red-700 dark:text-red-400"
     >
       <ExclamationCircleIcon class="size-4 shrink-0" />
       <span v-text="errorMessage" />

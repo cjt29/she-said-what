@@ -3,7 +3,7 @@
     @apply
       inline-flex items-center gap-2
       font-semibold leading-6
-      rounded-md
+      rounded-sm
       underline underline-offset-2
       transition-colors
       focus:outline-none
@@ -13,10 +13,10 @@
 
   .link--primary {
     @apply
-      text-indigo-700 dark:text-indigo-300
-      hover:text-indigo-800 hover:decoration-indigo-800 dark:hover:text-indigo-200 dark:hover:decoration-indigo-200
-      group-hover:text-indigo-800 dark:group-hover:text-indigo-200
-      focus-visible:outline-indigo-900 dark:focus-visible:outline-indigo-200
+      text-indigo-700 dark:text-indigo-400
+      hover:text-indigo-800 hover:decoration-indigo-800 dark:hover:text-indigo-300 dark:hover:decoration-indigo-300
+      group-hover:text-indigo-800 dark:group-hover:text-indigo-300
+      focus-visible:outline-indigo-900 dark:focus-visible:outline-indigo-300
     ;
   }
 }
